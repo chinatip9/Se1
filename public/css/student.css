@@ -1,0 +1,207 @@
+/* student.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: kanit;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    display: flex;
+    background-color: #6b6b6c;
+    width: 100%;
+    height: 15vh;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.logo {
+    width: 5%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    font-size: 3em;
+    color: white;
+}
+
+.headlogo {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1.5em;
+    font-family: Lobster two;
+}
+
+.login-btn ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.login-btn li {
+    font-size: 1.2em;
+    margin: 0 15px;
+}
+
+.login-btn a {
+    font-family: Lobster two;
+    text-decoration: none;
+    color: white;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    font-size: 1.2em;
+    color: white;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    font-family: Lobster two;
+}
+
+.auth-icon {
+    vertical-align: middle;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+nav {
+    width: 10%;
+    height: 85vh;
+    overflow: auto;
+    background-color: #181818;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+menu p {
+    font-size: 1.2em;
+    color: #747474;
+    text-align: center;
+    margin-top: 20px;
+}
+
+menu ul {
+    font-size: 1em;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+menu li {
+    margin: 10px 0;
+}
+
+
+menu a {
+    color: #747474;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.menu-icon {
+    margin-right: 10px;
+}
+
+article {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 70vh;
+    margin-top: 20vh;
+    margin-bottom: 10vh;
+    border-radius: 10px;
+}
+
+.content-article {
+    background-color: #0B0B0B;
+    width: 90%;
+    height: 77vh;
+    overflow: auto;
+    color: white;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.content-article table {
+    margin: 0 5%;
+    width: 90%;
+    color: white;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.head-table {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+
+.content-article table tr {
+    transition: .5s;
+}
+
+.content-article table tr:hover {
+    background-color: #131313;
+}
+
+.content-article table td {
+    text-align: center;
+    padding: 10px;
+    font-size: 1.1em;
+    vertical-align: middle;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

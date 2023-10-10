@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\HomeController;
@@ -32,4 +34,17 @@ Route::middleware([
     Route::get('/home', [HomeController::class, 'home'])->name('home'); // Change this line
 });
 
+//student
+Route::get('/addstudent', [StudentController::class, 'create'])->name('students.create');
+Route::post('/students',[StudentController::class,'store'])->name('students.store');
+Route::get('/students', [StudentController::class, 'index'])->name('students.index');
 
+//subject
+Route::get('/addsubject', [SubjectController::class, 'create'])->name('subjects.create');
+Route::post('/subjects',[SubjectController::class,'store'])->name('subjects.store');
+Route::get('/subjects', [SubjectController::class, 'index'])->name('subjects.index');
+
+ //  Course
+ Route::get('/addcourse', [CourseController::class, 'create'])->name('courses.create');
+ Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');
+ Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
