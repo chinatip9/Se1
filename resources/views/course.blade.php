@@ -66,6 +66,8 @@
                     <td class="head-table music-id">#</td>
                     <td class="head-table music-name">ชื่อนักเรียน</td>
                     <td class="head-table music-album">ชื่อวิชา</td>
+                    <td class="head-table music-album">รหัสวิชา</td>
+                    <td class="head-table music-album">กลุ่มเรียน</td>
                    
                 </tr>
             </thead>
@@ -74,8 +76,10 @@
                 @foreach($courses as $course)
                 <tr>
                     <td>{{ $course->id }}</td>
-                    <td>{{ $course->student_id }}</td>
-                    <td>{{ $course->subject_id }}</td>
+                    <td>{{ $course->student->first_name }} {{ $course->student->last_name }}</td>
+                    <td>{{ $course->subject->subject_name }}</td>
+                    <td>{{ $course->subject->subject_id }}</td>
+                    <td>{{ $course->subject->group }}</td>
                     
                     
                 </tr>

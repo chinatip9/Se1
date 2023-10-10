@@ -13,5 +13,8 @@ class Student extends Model
     use SoftDeletes; // เพิ่ม SoftDeletes trait
 
     protected $fillable = ['first_name', 'last_name', 'major', 'student_id'];
-
+    public function courses()
+    {
+        return $this->hasMany(Course::class, 'student_id');
+    }
 }

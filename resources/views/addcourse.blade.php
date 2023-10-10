@@ -79,7 +79,7 @@
                                 <ion-icon class="menu-icon" name="book"></ion-icon>Subject
                             </a></li>
 
-                            <li><a href="{{ url('/course') }}">
+                            <li><a href="{{ url('/courses') }}">
                                 <ion-icon class="menu-icon" name="people-circle"></ion-icon>Course
                             </a></li>
 
