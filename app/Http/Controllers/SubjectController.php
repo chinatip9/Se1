@@ -25,7 +25,7 @@ class SubjectController extends Controller
         
 
         $subject->save(); // บันทึกข้อมูล
-    return redirect()->route('subjects.create')->with('success', 'รายวิชาถูกเพิ่มเรียบร้อยแล้ว');
+    return redirect()->route('subjects.index')->with('success', 'รายวิชาถูกเพิ่มเรียบร้อยแล้ว');
 
 }
 
