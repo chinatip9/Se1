@@ -71,7 +71,7 @@
                             <h1 class="card-title">{{ $s->subject_name }}</h1>
                             <p class="card-text">Teacher: {{ $s->lecturer }}</p>
                             <p class="card-text">Section: {{ $s->group }}</p>
-                            <a href="/subjects" type="button" class="btn btn-outline-dark ">Subject</a>
+                            <a href="{{ route('courses.index' , ['sub_id' => $s->id]) }}" value="{{$s->id}}" type="button" class="btn btn-outline-dark ">Subject</a>
                         </div>
                     </div>
                 </div>
