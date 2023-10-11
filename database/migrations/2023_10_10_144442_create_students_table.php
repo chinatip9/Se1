@@ -16,7 +16,7 @@ return new class extends Migration
         $table->string('first_name');
         $table->string('last_name');
         $table->string('major');
-        $table->string('student_id')->unique();
+        $table->string('student_id');
         $table->integer('subject_id');
         $table->softDeletes(); // เพิ่ม soft deletes column
         $table->timestamps();

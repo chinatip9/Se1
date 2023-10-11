@@ -21,14 +21,16 @@
         text-align: center;
     }
     </style>
-        
+        @foreach($subjects as $subject)
+            @foreach($subjects_id as $subject_id) 
+                @if($subject_id->id == $subject->id)    
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light" >
-                <h1><p class="navbar-brand" style="text-transform: uppercase;">test</p></h1>
-                <p class="navbar-brand"><a href="{{ url('/showsubject') }}">Dashboard</a></p><p> * subject * test</p> 
+                <h1><p class="navbar-brand" style="text-transform: uppercase;">The Class</p></h1>
+                <p class="navbar-brand"><a href="{{ url('/subjects') }}">subject</a></p><p> * subject * {{$subject->subject_name}}</p> 
             </nav>                    
 
-
+    
     <!-- Content of your website goes here -->
     <div class="container d-flex flex-column align-items-center justify-content-top mt-5 mb-5" style="background-color: rgb(255, 255, 255); height: 100vh;">
 
@@ -43,22 +45,23 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="" method="POST">
-
+                        <form action="{{ route('students.store') }}" method="POST">
                             @csrf
                             <p>รหัสนักศึกษา:</p>
-                            <input type="text" name="std_code">
-                            <p>ชื่อ-นามสกุล:</p>
-                            <input type="text" name="std_name">
+                            <input type="text" name="student_id">
+                            <p>ชื่อจริง:</p>
+                            <input type="text" name="first_name">
+                            <p>นามสกุล:</p>
+                            <input type="text" name="last_name">
                             <p>สาขา:</p>
-                            <input type="text" name="std_email">
-                            <input type="hidden" name="">
+                            <input type="text" name="major">
+                            <input type="hidden" name="sub_id" value="{{$subject_id->id}}">
                     </div>
-                    <div class="modal-footer">
-                        <button type="reset" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-                        <button type="submit" class="btn btn-success">เพิ่ม</button>
-                    </div>
-                </form>
+                        <div class="modal-footer">
+                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                            <button type="submit" class="btn btn-success">เพิ่ม</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -92,12 +95,14 @@
         <!-- รายละเอียดวิชา -->
         <div class="row">
             <div class="col-md-6">
-
-                    <p>รหัสวิชา: test</p>
-                    <p>ชื่อวิชา: test</p>
-                    <p>เทอม: test</p>
-                    <p>ปีการศึกษา: test</p>
+                    <p>รหัสวิชา : {{$subject->subject_id}}</p>
+                    <p>ชื่อวิชา : {{$subject->subject_name}}</p>
+                    <p>อาจาร์ยผู้สอน : {{$subject->lecturer}}</p>
+                    <p>กลุ่ม : {{$subject->group}}</p>
             </div>
+                @endif
+            @endforeach
+        @endforeach
             <div class="container mb-5">
                 <div class="d-flex justify-content-end">
                     <button class="btn btn-outline-primary mr-2" data-toggle="modal" data-target="#addexecelModal">นำเข้าไฟล์ excel</button>
@@ -111,20 +116,21 @@
                         <th>ลำดับ</th>
                         <th>รหัสนักศึกษา</th>
                         <th>ชื่อนามสกุล</th>
-                        <th>อีเมล</th>
-                        <th>วันที่เพิ่ม</th>
+                        <th>สาขา</th>
+                        <th>กลุ่มเรียน</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody> 
-
-                    <tr>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td> 
-
+                    <tr> 
+                @foreach($subjects_id as $subject_id) 
+                    @foreach($students as $student) 
+                        @if($subject_id->id == $student->subject_id)
+                        <td>{{$student->id}}</td>
+                        <td>{{$student->student_id}}</td>
+                        <td>{{$student->first_name}} {{$student->last_name}}</td>
+                        <td>{{$student->major}}</td></td>
+                        <td>{{$subject->group}}</td> 
                         <td class="text-center">
                             <button class="btn" data-toggle="modal" data-target="#deleteSubjectModal" style="color: red; border: 2px solid red;">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
@@ -179,11 +185,14 @@
                                     <form action="" method="POST">
                                         @csrf
                                         <p>รหัสนักศึกษา:</p>
-                                        <input type="text" name="student_code">
-                                        <p>ชื่อ-นามสกุล:</p>
-                                        <input type="text" name="student_name">
-                                        <p>อีเมล:</p>
-                                        <input type="text" name="student_email">
+                                        <input type="text" name="student_id">
+                                        <p>ชื่อจริง:</p>
+                                        <input type="text" name="first_name">
+                                        <p>นามสกุล:</p>
+                                        <input type="text" name="last_name">
+                                        <p>สาขา:</p>
+                                        <input type="text" name="major">
+                                        <input type="hidden" name="sub_id" value="{{$subject_id->id}}">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="reset" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
@@ -193,14 +202,15 @@
                             </div>
                         </div>
                     </div>
-
+                        @endif
+                    @endforeach
+                @endforeach
                 </tbody>
             </table>
     </div>
 
     <!-- Link to Bootstrap JS and jQuery (required for Bootstrap functionality) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
