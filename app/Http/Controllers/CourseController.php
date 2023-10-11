@@ -33,7 +33,7 @@ class CourseController extends Controller
             return redirect()->route('courses.create')->with('success', 'จัดการคอร์สเรียบร้อยแล้ว');
         } catch (\Exception $e) {
             // Log the exception
-            \Log::error($e->getMessage());
+            // \Log::error($e->getMessage());
     
             // Optionally, you can redirect to an error page or return an error message
             return redirect()->route('courses.create')->with('error', 'An error occurred while saving the data.');
