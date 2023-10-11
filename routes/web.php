@@ -28,8 +28,8 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+        return view('welcome');
+    })->name('welcome');
 
     Route::get('/home', [HomeController::class, 'home'])->name('home'); // Change this line
 });
@@ -48,3 +48,5 @@ Route::get('/subjects', [SubjectController::class, 'index'])->name('subjects.ind
  Route::get('/addcourse', [CourseController::class, 'create'])->name('courses.create');
  Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');
  Route::get('/courses/{sub_id}', [CourseController::class, 'index'])->name('courses.index');
+
+ Route::get('/home', [HomeController::class, 'index'])->name('index');

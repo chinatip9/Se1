@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Subject;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -18,5 +19,11 @@ public function home()
         return redirect('/login');
     }
 }
+// Controller
+public function index() {
+    $subjects = Subject::all(); // ตัวอย่างการดึงข้อมูล Subjects จาก Model
+    return view('home', compact('subjects'));
+}
+
 
 }

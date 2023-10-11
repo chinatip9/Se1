@@ -1,0 +1,28 @@
+/* สไตล์ของคอนเทนเนอร์หลัก */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('path/to/background-image.jpg'); /* แทนที่ path/to/background-image.jpg ด้วย URL ของภาพพื้นหลัง */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* สไตล์รูปภาพ */
+.logo {
+    width: 700px; /* ปรับขนาดรูปภาพตามความต้องการ */
+}
+
+/* สไตล์ปุ่ม */
+.btn {
+    font-size: 18px;
+    margin-top: 20px; /* เพิ่มระยะห่างด้านบนของปุ่ม */
+}
+
+/* สไตล์ปุ่มเมื่อนำเมาส์ไปชี้ (hover) */
+.btn:hover {
+    background-color: #0056b3;
+}
