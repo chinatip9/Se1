@@ -7,30 +7,49 @@
     <!-- Link to Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body style="background-color: cyan;">
+<body style="background-color: gray;">
     <!-- Navbar -->
     <style>
     .navbar {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+    th {
+        text-align: center;
+    }
+
+    td {
+        text-align: center;
+    }
     </style>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <H1>
-                <p class="navbar-brand mb-0 h1" href="#">Dashboard</p>
-            </H1>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    @auth
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">{{ auth()->user()->name }}<span class="sr-only">(current)</span></a>
-                    </li>
-                    @endauth
-                </ul>
-            </div>
-        </nav>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <H1>
+                    <p class="navbar-brand mb-0 h1" href="#">Dashboard</p>
+                </H1>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        @auth
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">{{ auth()->user()->name }}<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-link nav-link">ออกจากระบบ</button>
+                            </form>
+                        </li>
+                        @endauth
+
+                        @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">เข้าสู่ระบบ</a>
+                        </li>
+                        @endguest
+                    </ul>
+                </div>
+            </nav>
    
     <!-- Content of your website goes here -->
     <div class="container d-flex flex-column align-items-center justify-content-top mt-5 mb-5" style="background-color: rgb(255, 255, 255); height: 100vh;">
@@ -69,7 +88,7 @@
             </div>
         </div>
 
-                <table class="table table-bordered table-striped mt-2">
+        <table class="table table-bordered table-striped mt-2">
             <thead>
                 <tr>
                     <th>รหัสวิชา</th>
@@ -103,8 +122,32 @@
                 </tr>
                 <!-- Modal แก้ไข -->
                 <div class="modal fade" id="editSubjectModal" tabindex="-1" role="dialog" aria-labelledby="editSubjectModalLabel" aria-hidden="true">
-                    <!-- โค้ดโมดัลลบวิชา สำหรับแต่ละวิชา -->
-                </div>
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editSubjectModalLabel">แก้ไขวิชา</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="" method="POST">
+                                        @csrf
+                                        <p>รหัสนักศึกษา:</p>
+                                        <input type="text" name="student_code">
+                                        <p>ชื่อ-นามสกุล:</p>
+                                        <input type="text" name="student_name">
+                                        <p>อีเมล:</p>
+                                        <input type="text" name="student_email">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="reset" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                                    <button type="submit" class="btn btn-warning">แก้ไข</button>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
                 
                 <!-- Modal ลบวิชา -->
                 <div class="modal fade" id="deleteSubjectModal{{$subject->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteSubjectModalLabel" aria-hidden="true">

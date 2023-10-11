@@ -13,6 +13,13 @@
     .navbar {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+    th {
+        text-align: center;
+    }
+
+    td {
+        text-align: center;
+    }
     </style>
         
 
@@ -43,9 +50,9 @@
                             <input type="text" name="std_code">
                             <p>ชื่อ-นามสกุล:</p>
                             <input type="text" name="std_name">
-                            <p>อีเมล:</p>
+                            <p>สาขา:</p>
                             <input type="text" name="std_email">
-                            
+                            <input type="hidden" name="id_sub">
                     </div>
                     <div class="modal-footer">
                         <button type="reset" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
