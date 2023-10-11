@@ -14,8 +14,7 @@
     </script>
 </head>
 
-<body>
-    <div class="container">
+<body >
         <header
             class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
             <div class="col-md-3 mb-2 mb-md-0">
@@ -62,22 +61,25 @@
         </header>
     </div>
     <div class="home">
-    <h2 class="title">Subject</h2>
-    <div class="row mt-3">
-        @foreach ($subjects as $s)
-            <div class="col-sm-3 mb-3 mb-sm-0">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">{{ $s->subject_id }}</h4>
-                        <h1 class="card-title">{{ $s->subject_name }}</h1>
-                        <p class="card-text">Teacher : {{ $s->lecturer }}</p>
-                        <p class="card-text">Section : {{ $s->group }}</p>
-                        <a href="/subjects" type="button" class="btn btn-outline-dark">Work</a>
+        <h2 class="title mx-5">Subject</h2>
+            <div class="row mt-3">
+                @foreach ($subjects as $s)
+                    <div class="col-sm-3 mb-3 mb-sm-0">
+                        <div class="card h-100 mx-4">
+                            <div class="card-body">
+                            <h4 class="card-title">{{ $s->subject_id }}</h4>
+                            <h1 class="card-title">{{ $s->subject_name }}</h1>
+                            <p class="card-text">Teacher: {{ $s->lecturer }}</p>
+                            <p class="card-text">Section: {{ $s->group }}</p>
+                            <a href="/subjects" type="button" class="btn btn-outline-dark ">Subject</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
+             @endforeach
+        </div>
     </div>
+
+
    
 
     <div class="container">
