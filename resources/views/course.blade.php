@@ -52,7 +52,7 @@
                             <input type="text" name="std_name">
                             <p>สาขา:</p>
                             <input type="text" name="std_email">
-                            <input type="hidden" name="id_sub">
+                            <input type="hidden" name="">
                     </div>
                     <div class="modal-footer">
                         <button type="reset" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>

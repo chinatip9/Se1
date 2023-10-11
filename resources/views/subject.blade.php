@@ -102,7 +102,7 @@
                 @foreach($subjects as $subject)
                 <tr>
                     <td>{{$subject->subject_id}}</td>
-                    <td><a href="{{ url('/courses') }}">{{$subject->subject_name}}</a></td>
+                    <td><a href="{{ route('courses.index' , ['sub_id' => $subject->id]) }}">{{$subject->subject_name}}</a></td>
                     <td>{{$subject->lecturer}}</td>
                     <td>{{$subject->group}}</td>
                     <td class="text-center">
@@ -160,7 +160,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form action="{{url('/subjects/'.$subject->id)}}" method="POST">
+                                <form action="" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <p>คุณจะลบวิชา {{$subject->subject_name}} ใช่หรือไม่?</p>

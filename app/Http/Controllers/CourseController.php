@@ -9,11 +9,20 @@ use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
-    public function index()
-{
-    $courses = Course::all();
-    return view('course', ['courses' => $courses]);
-}
+//     public function index()
+// {
+//     $courses = Course::all();
+//     return view('course', ['courses' => $courses]);
+// }
+    public function index($sub_id){
+        $subjects_id = Subject::where('id',$sub_id)->get();
+        $subjects = Subject::all();
+        $students = Student::all();
+        if(!$sub_id){
+            return abort(404);
+        }
+        return view('course',compact('subjects_id','students','subjects')) ;
+    }
        
     public function create()
     {

@@ -47,4 +47,4 @@ Route::get('/subjects', [SubjectController::class, 'index'])->name('subjects.ind
  //  Course
  Route::get('/addcourse', [CourseController::class, 'create'])->name('courses.create');
  Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');
- Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
+ Route::get('/courses/{sub_id}', [CourseController::class, 'index'])->name('courses.index');
