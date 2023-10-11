@@ -27,5 +27,11 @@ class StudentController extends Controller
     public function create(){
         return view ('/addstudent');
     }
-
+    public function destroy($id)
+    {
+        $student = Student::find($id);
+        $student->delete();
+    
+        return redirect()->route('students.index')->with('success', 'Subject deleted successfully.');
+    }
 }

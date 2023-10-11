@@ -33,5 +33,12 @@ public function create(){
     return view ('/addsubject');
 }
 
+public function destroy($id)
+{
+    $subject = Subject::find($id);
+    $subject->delete();
+
+    return redirect()->route('subjects.index')->with('success', 'Subject deleted successfully.');
+}
 
 }

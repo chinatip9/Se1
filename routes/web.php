@@ -38,15 +38,19 @@ Route::middleware([
 Route::get('/addstudent', [StudentController::class, 'create'])->name('students.create');
 Route::post('/students',[StudentController::class,'store'])->name('students.store');
 Route::get('/students', [StudentController::class, 'index'])->name('students.index');
+Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
 
 //subject
 Route::get('/addsubject', [SubjectController::class, 'create'])->name('subjects.create');
 Route::post('/subjects',[SubjectController::class,'store'])->name('subjects.store');
 Route::get('/subjects', [SubjectController::class, 'index'])->name('subjects.index');
+Route::delete('/subjects/{subject}', [SubjectController::class, 'destroy'])->name('subjects.destroy');
+
 
  //  Course
  Route::get('/addcourse', [CourseController::class, 'create'])->name('courses.create');
  Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');
  Route::get('/courses/{sub_id}', [CourseController::class, 'index'])->name('courses.index');
+ Route::delete('/courses/{course}', [CourseController::class, 'destroy'])->name('courses.destroy');
 
  Route::get('/home', [HomeController::class, 'index'])->name('index');

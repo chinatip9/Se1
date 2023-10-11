@@ -48,4 +48,11 @@ class CourseController extends Controller
             return redirect()->route('courses.create')->with('error', 'An error occurred while saving the data.');
         }
     }
+    public function destroy($id)
+    {
+        $course = Course::find($id);
+        $course->delete();
+    
+        return redirect()->route('courses.index')->with('success', 'Subject deleted successfully.');
+    }
 }

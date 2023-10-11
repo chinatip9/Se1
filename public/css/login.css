@@ -35,6 +35,7 @@ body {
 .left-con .slideshow {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    
 }
 .left-con .slide {
     min-width: 100%;
@@ -42,6 +43,7 @@ body {
     flex-shrink: 0;
     background-size: cover;
     background-position: center;
+ 
 }
 
 
