@@ -7,7 +7,7 @@
     <!-- Link to Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body style="background-color: burlywood">
+<body style="background-color: skyblue">
     <!-- Navbar -->
     <style>
     .navbar {
@@ -20,6 +20,23 @@
     td {
         text-align: center;
     }
+    .rounded-content {
+        border-radius: 15px; /* ปรับระดับขอบกลมตามต้องการ */
+    }
+    .nav-item:hover {
+        background-color: skyblue; /* เปลี่ยนสีพื้นหลังเมื่อเม้าส์ไปอยู่เหนือปุ่ม */
+        transition: background-color 0.5s; /* เพิ่มการเคลื่อนไหวเมื่อเม้าส์ไปอยู่เหนือปุ่ม */
+        font: 1em sans-serif ;
+    }
+    td:hover {
+        background-color: skyblue; /* เปลี่ยนสีพื้นหลังเมื่อเม้าส์ไปอยู่เหนือปุ่ม */
+        transition: background-color 0.5s; /* เพิ่มการเคลื่อนไหวเมื่อเม้าส์ไปอยู่เหนือปุ่ม */
+        font: 1em sans-serif ;
+    }
+    a{
+        text-decoration: none;
+        color: darkmagenta;
+    }
     </style>
         @foreach($subjects as $subject)
             @foreach($subjects_id as $subject_id) 
@@ -28,11 +45,39 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light" >
                 <h1><p class="navbar-brand" style="text-transform: uppercase;">The Class</p></h1>
                 <p class="navbar-brand"><a href="{{ url('/subjects') }}">subject</a></p><p> * subject * {{$subject->subject_name}}</p> 
-            </nav>                    
+            </nav>    
+            
+            <div class="row"  >
+                    <!-- Sidebar (เริ่มต้น) -->
+                    <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar mt-3 ml-4 rounded-content">
+                        <div class="position-sticky">
+                            <ul class="nav flex-column">
+                                <!-- เพิ่มรายการเมนู sidebar ตามที่คุณต้องการ -->
+                                <li class="nav-item mt-3 " style="text-align: left; font-size: 25px;  border: 3px solid darkmagenta; border-radius: 10px; padding: 10px; margin-bottom: 10px;">
+                                    <a class="nav-link active" href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                            <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+                                        </svg>
+                                        Home
+                                    </a>
+                                </li>
+                                <li class="nav-item hover" style="text-align: left; font-size: 25px;  border: 3px solid darkmagenta; border-radius: 10px; padding: 10px; margin-bottom: 10px;">
+                                    <a class="nav-link" href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-backpack4" viewBox="0 0 16 16">
+                                            <path d="M4 9.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-4Zm1 .5v3h6v-3h-1v.5a.5.5 0 0 1-1 0V10H5Z"/>
+                                            <path d="M8 0a2 2 0 0 0-2 2H3.5a2 2 0 0 0-2 2v1c0 .52.198.993.523 1.349A.5.5 0 0 0 2 6.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6.5a.5.5 0 0 0-.023-.151c.325-.356.523-.83.523-1.349V4a2 2 0 0 0-2-2H10a2 2 0 0 0-2-2Zm0 1a1 1 0 0 0-1 1h2a1 1 0 0 0-1-1ZM3 14V6.937c.16.041.327.063.5.063h4v.5a.5.5 0 0 0 1 0V7h4c.173 0 .34-.022.5-.063V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Zm9.5-11a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h9Z"/>
+                                        </svg>
+                                        All Students
+                                    </a>
+                                </li>
+                                <!-- เพิ่มรายการเมนูเพิ่มเติมตามที่คุณต้องการ -->
+                            </ul>
+                        </div>
+                    </nav>
 
     
     <!-- Content of your website goes here -->
-    <div class="container d-flex flex-column align-items-center justify-content-top mt-5 mb-5" style="background-color: rgb(255, 255, 255); height: 100vh;">
+    <div class="container d-flex flex-column align-items-center justify-content-top mt-3 mb-5   rounded-content" style="background-color: rgb(255, 255, 255); height: 100vh;">
 
         <!-- เพิ่มรายบุคคล -->
         <div class="modal fade" id="addStdModal" tabindex="-1" role="dialog" aria-labelledby="addStdModalLabel" aria-hidden="true">
