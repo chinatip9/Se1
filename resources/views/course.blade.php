@@ -42,10 +42,35 @@
             @foreach($subjects_id as $subject_id) 
                 @if($subject_id->id == $subject->id)    
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light" >
-                <h1><p class="navbar-brand" style="text-transform: uppercase;">The Class</p></h1>
-                <p class="navbar-brand"><a href="{{ url('/subjects') }}">subject</a></p><p> * subject * {{$subject->subject_name}}</p> 
-            </nav>    
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <H1>
+                <p class="navbar-brand mb-0 h1" href="#" style="font-size: 35px;">The class</p>
+                </H1>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        @auth
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">{{ auth()->user()->name }}<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-link nav-link">ออกจากระบบ</button>
+                            </form>
+                        </li>
+                        @endauth
+
+                        @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">เข้าสู่ระบบ</a>
+                        </li>
+                        @endguest
+                    </ul>
+                </div>
+            </nav>  
             
             <div class="row"  >
                     <!-- Sidebar (เริ่มต้น) -->
@@ -83,7 +108,7 @@
                         </div>
                     </nav>
     <!-- Content of your website goes here -->
-    <div class="container d-flex flex-column align-items-center justify-content-top mt-3 mb-5   rounded-content" style="background-color: rgb(255, 255, 255); height: 100vh;">
+    <div class="container d-flex flex-column align-items-center justify-content-top mt-3 mb-6   rounded-content" style="background-color: rgb(255, 255, 255); height: 100vh;">
 
         <!-- เพิ่มรายบุคคล -->
         <div class="modal fade" id="addStdModal" tabindex="-1" role="dialog" aria-labelledby="addStdModalLabel" aria-hidden="true">
@@ -122,7 +147,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <p class="mr-auto mt-2" data-toggle="modal" data-target="#addSubjectModal">เพิ่มวิชา</p>
+                    <p class="mr-auto mt-2" data-toggle="modal" data-target="#addSubjectModal">เพิ่มรายชื่อ</p>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -157,7 +182,7 @@
             <div class="container mb-5">
                 <div class="d-flex justify-content-end">
                     <button class="btn btn-outline-primary mr-2" data-toggle="modal" data-target="#addexecelModal">นำเข้าไฟล์ excel</button>
-                    <button class="btn btn-outline-primary" data-toggle="modal" data-target="#addStdModal">นำเข้ารายบุคคล</button>
+                    <button class="btn btn-outline-primary" data-toggle="modal" data-target="#addStdModal">เพิ่มรายชื่อ</button>
                 </div>
             </div>
 

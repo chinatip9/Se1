@@ -21,7 +21,7 @@ public function home()
 }
 // Controller
 public function index() {
-    $subjects = Subject::all(); // ตัวอย่างการดึงข้อมูล Subjects จาก Model
+    $subjects = Subject::all(); 
     return view('home', compact('subjects'));
 }
 

@@ -31,7 +31,7 @@ Route::middleware([
         return view('welcome');
     })->name('welcome');
 
-    Route::get('/home', [HomeController::class, 'home'])->name('home'); // Change this line
+    
 });
 
 //student

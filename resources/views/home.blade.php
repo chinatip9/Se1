@@ -44,7 +44,7 @@
                             <li><a class="dropdown-item" href="/addsubject">Add Subject</a></li>
                         @else
                         <li><a class="dropdown-item" href="/subjects">Subject</a></li>
-                            <li><a class="dropdown-item" href="/students">Score</a></li>
+                            <li><a class="dropdown-item" href="/home">Score</a></li>
                         @endif
                         <li>
                             <form method="POST" action="{{ route('logout') }}">

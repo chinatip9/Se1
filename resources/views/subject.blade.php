@@ -193,11 +193,13 @@
                                 <div class="modal-body">
                                     <form action="" method="POST">
                                         @csrf
-                                        <p>รหัสนักศึกษา:</p>
+                                        <p>รหัสวิชา:</p>
                                         <input type="text" name="student_code">
-                                        <p>ชื่อ-นามสกุล:</p>
+                                        <p>ชื่อวิชา:</p>
                                         <input type="text" name="student_name">
-                                        <p>อีเมล:</p>
+                                        <p>อาจารย์ผู้สอน:</p>
+                                        <input type="text" name="student_email">
+                                        <p>กลุ่มเรียน:</p>
                                         <input type="text" name="student_email">
                                 </div>
                                 <div class="modal-footer">
